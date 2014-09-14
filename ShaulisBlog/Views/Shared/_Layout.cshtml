@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<!--
+Authors:
+    Name: Rotem Adhoh   ID: 301738845
+    Name: Zeev Manilovich   ID: 360609436
+-->
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Ha-Blog Shel Shauli</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/ShauliContent/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <header>
+            <h1>Ha-Blog Shel Shauli</h1>
+        </header>
+
+        <nav>
+            <!-- Navigation -->
+            <ul>
+                <li class="selected">@Html.ActionLink("Blog", "Index", "Blog")</li>
+                <li>@Html.ActionLink("About","Index","Blog")</li>
+                <li>@Html.ActionLink("Fan Club", "Index", "FanClub")</li>
+                <li>@Html.ActionLink("Contact", "Index", "Blog")</li>
+                <li class="subscribe"> <img src="~/Images/rss.png" alt="RSS" />@Html.ActionLink("Subscribe via. RSS", "Index", "Blog") </li>
+            </ul>
+        </nav>
+        <section id="intro">
+            <!-- Introduction -->
+
+            <header>
+                <h2>Do you have questions for me?</h2>
+            </header>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+            <img src="~/Images/intro_shauli.png" alt="Shauli" />
+        </section>
+
+        <div id="content">
+            <!-- Controller internal content -->
+
+            <div id="body">
+                <!--@RenderSection("featured", required: false)-->
+                <section class="content-wrapper main-content clear-fix">
+                    @RenderBody()
+                </section>
+            </div>
+        </div>
+
+        <!-- Side Bar -->
+            <aside>
+                <section>
+                    <header>
+                        <h3>Categories</h3>
+                    </header>
+                    <ul>
+                        <li><a href="#">Lorem ipsum dolor</a></li>
+                        <li><a href="#">Sit amet consectetur</a></li>
+                        <li><a href="#">Adipisicing elit sed</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <header>
+                        <h3>Archives</h3>
+                    </header>
+                    <ul>
+                        <li><a href="#">December 2008</a></li>
+                        <li><a href="#">January 2009</a></li>
+                        <li><a href="#">February 2009</a></li>
+                        <li><a href="#">March 2009</a></li>
+                    </ul>
+                </section>
+            </aside>
+        
+            <footer>
+                <!-- Footer -->
+                <div>
+                    <section id="about">
+                        <header>
+                            <h3>About</h3>
+                        </header>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut la</p>
+                    </section>
+                    <section id="blogroll">
+                        <header>
+                            <h3>Blogroll</h3>
+                        </header>
+                        <ul>
+                            <li><a href="#">NETTUTS+</a></li>
+                            <li><a href="#">FreelanceSwitch</a></li>
+                        </ul>
+                    </section>
+                    <section id="popular">
+                        <header>
+                            <h3>Popular</h3>
+                        </header>
+                        <ul>
+                            <li><a href="#">This is the title of a blog post</a></li>
+                            <li><a href="#">Lorem ipsum dolor sit amet</a></li>
+                            <li><a href="#">Consectetur adipisicing elit, sed do eiusmod</a></li>
+                        </ul>
+                    </section>
+                </div>
+            </footer>
+
+            @Scripts.Render("~/bundles/jquery")
+            @RenderSection("scripts", required: false)
+</body>
+</html>

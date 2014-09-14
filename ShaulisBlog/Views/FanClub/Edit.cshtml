@@ -1,0 +1,72 @@
+﻿@model ShaulisBlog.Models.Fan
+
+@Styles.Render("~/FanClubContent/css")
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Fan</legend>
+
+        @Html.HiddenFor(model => model.FanID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FName)
+            @Html.ValidationMessageFor(model => model.FName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LName)
+            @Html.ValidationMessageFor(model => model.LName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Gender)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Gender)
+            @Html.ValidationMessageFor(model => model.Gender)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BDate)
+            @Html.ValidationMessageFor(model => model.BDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Seniority)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Seniority)
+            @Html.ValidationMessageFor(model => model.Seniority)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

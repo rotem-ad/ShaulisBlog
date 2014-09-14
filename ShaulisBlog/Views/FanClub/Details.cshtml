@@ -1,0 +1,52 @@
+﻿@model ShaulisBlog.Models.Fan
+
+@Styles.Render("~/FanClubContent/css")
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Fan</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Gender)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Gender)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Seniority)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Seniority)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.FanID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
