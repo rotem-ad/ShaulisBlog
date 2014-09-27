@@ -50,6 +50,12 @@ namespace ShaulisBlog.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Post post)
         {
+            // Get current date and update post PublishDate property 
+            DateTime currDate = DateTime.Now;
+            post.PublishDate = currDate;
+
+            ModelState["PublishDate"].Errors.Clear(); // Required to make ModelState valid
+
             if (ModelState.IsValid)
             {
                 db.Posts.Add(post);

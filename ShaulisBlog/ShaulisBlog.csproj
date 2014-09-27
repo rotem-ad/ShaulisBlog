@@ -202,6 +202,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Blog.css" />
     <Content Include="Content\Fan_Club.css" />
     <Content Include="Content\fonts\Dharma Type Font License.txt" />
     <Content Include="Content\Shaulis_Site.css" />
