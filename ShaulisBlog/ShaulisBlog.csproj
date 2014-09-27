@@ -323,6 +323,12 @@
     <Content Include="Views\FanClub\Create.cshtml" />
     <Content Include="Views\FanClub\Edit.cshtml" />
     <Content Include="Views\FanClub\Delete.cshtml" />
+    <Content Include="Views\Blog\Index - Copy.cshtml" />
+    <Content Include="Views\Blog\Details.cshtml" />
+    <Content Include="Views\Blog\Create.cshtml" />
+    <Content Include="Views\Blog\Edit.cshtml" />
+    <Content Include="Views\Blog\Delete.cshtml" />
+    <Content Include="Views\Blog\_PostComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

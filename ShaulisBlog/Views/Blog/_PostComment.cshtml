@@ -1,0 +1,31 @@
+﻿@model ShaulisBlog.Models.Comment
+
+@{
+    using (Html.BeginForm("CreateComment","Blog",FormMethod.Post)) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <h3>Post a comment</h3>
+    
+    @Html.HiddenFor(model => model.PostID) <!-- Getting the PostId from Index.cshtml-->
+    <p>
+        @Html.LabelFor(model => model.Writer, "Name")
+        @Html.TextBoxFor(model => model.Writer, new { id = "writer", required = "required" })
+    </p>
+    <p>
+        @Html.LabelFor(model => model.WriterWebSite, "Website")
+        @Html.TextBoxFor(model => model.WriterWebSite, new { id = "writerWebSite", type = "url"})
+    </p>
+    <p>
+        @Html.LabelFor(model => model.Title)
+        @Html.TextBoxFor(model => model.Title, new { id = "title", required = "required" })
+    </p>
+    <p>
+        @Html.LabelFor(model => model.Content, "Comment")
+        @Html.TextAreaFor(model => model.Content, new { id = "comment", required = "required" })
+    </p>
+    
+    <p><input type="submit" value="Post comment" /></p>
+
+    }
+}
