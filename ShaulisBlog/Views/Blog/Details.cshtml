@@ -11,21 +11,20 @@
 <!-- IFormatProvider for post date -->
 @{CultureInfo dateFormatProvider = CultureInfo.CreateSpecificCulture("en-US");}
 
-    <section>
-        <article class="blogPost">
-            <header>
-                <h2>@Model.Title</h2>
-                <p>
-                    Posted on <time datetime="@Model.PublishDate"> @Model.PublishDate.ToString("D", dateFormatProvider) </time> by
-                    <a href="@Model.AuthorWebSite">@Html.DisplayFor(modelpost => post.Author)</a> - @Model.Comments.Count comments <!-- display count comments -->
-                </p>
-            </header>
-            <div id="contentText">
-                <p> @Model.Content </p>
-            </div>
-        </article>
-    </section>
-
+<section>
+    <article class="blogPost">
+        <header>
+            <h2>@Model.Title</h2>
+            <p>
+                Posted on <time datetime="@Model.PublishDate"> @Model.PublishDate.ToString("D", dateFormatProvider) </time> by
+                <a href="@Model.AuthorWebSite">@Model.Author</a> - @Model.Comments.Count comments <!-- display count comments -->
+            </p>
+        </header>
+        <div id="contentText">
+            <p> @Model.Content </p>
+        </div>
+    </article>
+</section>
 
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.PostID }) |
