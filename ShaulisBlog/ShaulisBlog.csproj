@@ -331,6 +331,7 @@
     <Content Include="Views\Blog\Delete.cshtml" />
     <Content Include="Views\Blog\_PostComment.cshtml" />
     <Content Include="Views\Blog\Admin.cshtml" />
+    <Content Include="Views\Blog\Details - Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
