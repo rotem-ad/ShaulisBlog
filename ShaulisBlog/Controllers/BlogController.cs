@@ -23,6 +23,16 @@ namespace ShaulisBlog.Controllers
         }
 
         //
+        // GET: /Blog/Admin
+        /*
+         * Method which handles the Admin view
+         */
+        public ActionResult Admin()
+        {
+            return View(db.Posts.ToList());
+        }
+
+        //
         // GET: /Blog/Details/5
 
         public ActionResult Details(int id = 0)
@@ -36,19 +46,19 @@ namespace ShaulisBlog.Controllers
         }
 
         //
-        // GET: /Blog/Create
+        // GET: /Blog/AddNewPost
 
-        public ActionResult Create()
+        public ActionResult AddNewPost()
         {
             return View();
         }
 
         //
-        // POST: /Blog/Create
+        // POST: /Blog/AddNewPost
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Post post)
+        public ActionResult AddNewPost(Post post)
         {
             // Get current date and update post PublishDate property 
             DateTime currDate = DateTime.Now;
@@ -58,23 +68,29 @@ namespace ShaulisBlog.Controllers
 
             if (ModelState.IsValid)
             {
+                // Add new post to Post table in DB
                 db.Posts.Add(post);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Admin");
             }
 
             return View(post);
         }
 
-        //
+        
+        
         // POST: /Blog/CreateComment
-
+        /*
+         * Method which adds new comment to given post.
+         * Called after submitting the form in _PostComment partial view 
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CreateComment(Comment comment)
         {
             if (ModelState.IsValid)
             {
+                // Add new comment to Comment table in DB
                 db.Comments.Add(comment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -107,7 +123,7 @@ namespace ShaulisBlog.Controllers
             {
                 db.Entry(post).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Admin");
             }
             return View(post);
         }
@@ -135,7 +151,7 @@ namespace ShaulisBlog.Controllers
             Post post = db.Posts.Find(id);
             db.Posts.Remove(post);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Admin");
         }
 
         protected override void Dispose(bool disposing)
