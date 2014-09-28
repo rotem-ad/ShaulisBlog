@@ -332,6 +332,7 @@
     <Content Include="Views\Blog\_PostComment.cshtml" />
     <Content Include="Views\Blog\Admin.cshtml" />
     <Content Include="Views\Blog\Details - Copy.cshtml" />
+    <Content Include="Views\Blog\ManageComments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

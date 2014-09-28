@@ -33,6 +33,21 @@ namespace ShaulisBlog.Controllers
         }
 
         //
+        // GET: /Blog/ManageComments
+        /*
+         * Method which handles the Manage Comments view
+         */
+        public ActionResult ManageComments(int id = 0)
+        {
+            Post post = db.Posts.Find(id);
+            if (post == null)
+            {
+                return HttpNotFound();
+            }
+            return View(post);
+        }
+
+        //
         // GET: /Blog/Details/5
 
         public ActionResult Details(int id = 0)

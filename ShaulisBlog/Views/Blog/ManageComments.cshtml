@@ -1,0 +1,29 @@
+﻿@model ShaulisBlog.Models.Post
+
+@using System.Globalization
+
+@{
+    ViewBag.Title = "ManageComments";
+}
+
+<h2>ManageComments</h2>
+
+<!-- Comments section -->
+<section id="comments">
+    <h3>Comments</h3>
+    <!-- Display each comment in DB which related to this post -->
+    @foreach (var comment in Model.Comments)
+    {
+        <article>
+            <header>
+                <a href="@comment.WriterWebSite">@comment.Writer</a>
+            </header>
+            <p> @comment.Content </p>
+        </article>
+    }
+</section>
+
+<p> </p>
+<p>
+    @Html.ActionLink("Back to Admin View", "Admin")
+</p>
