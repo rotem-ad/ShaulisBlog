@@ -79,11 +79,10 @@ Authors:
         }
     </section>
         
-    <!-- Comment form -->   
+    <!-- Generate Post Comment form -->   
     Comment newComment = new Comment();
-    newComment.PostID = post.PostID;
-
-        
+    // Get current post's PostId and pass it to _PostComment partial view
+    newComment.PostID = post.PostID; 
     @Html.Partial("_PostComment",newComment)
         
     }

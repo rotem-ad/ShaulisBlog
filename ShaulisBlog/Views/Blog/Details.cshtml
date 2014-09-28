@@ -1,5 +1,7 @@
 ﻿@model ShaulisBlog.Models.Post
 
+@Styles.Render("~/Blog/css")
+
 @{
     ViewBag.Title = "Details";
 }
@@ -46,5 +48,5 @@
 </fieldset>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.PostID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Admin View", "Admin")
 </p>
