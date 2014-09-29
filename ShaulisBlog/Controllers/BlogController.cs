@@ -48,6 +48,26 @@ namespace ShaulisBlog.Controllers
         }
 
         //
+        // POST: /Blog/DeleteComment/5
+        /*
+        * Method which handles the comments deletion
+        */
+        [HttpPost, ActionName("DeleteComment")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteComment(int id = 0)
+        {
+            Comment comment = db.Comments.Find(id);
+            // Before deletion, get this comment's related post ID
+            int postID = comment.PostID;
+            // Delete comment from DB
+            db.Comments.Remove(comment);
+            db.SaveChanges();
+
+            // Display Manage Comments view of the deleted comment
+            return RedirectToAction("ManageComments", new { id = postID });
+        }
+
+        //
         // GET: /Blog/Details/5
 
         public ActionResult Details(int id = 0)

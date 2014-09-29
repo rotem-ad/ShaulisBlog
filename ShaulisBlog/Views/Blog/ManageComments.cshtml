@@ -3,10 +3,10 @@
 @using System.Globalization
 
 @{
-    ViewBag.Title = "ManageComments";
+    ViewBag.Title = "Manage Comments";
 }
 
-<h2>ManageComments</h2>
+<h2>Manage Comments</h2>
 
 <!-- Comments section -->
 <section id="comments">
@@ -19,6 +19,13 @@
                 <a href="@comment.WriterWebSite">@comment.Writer</a>
             </header>
             <p> @comment.Content </p>
+            <!-- Form which handles this comment deletion -->
+            @using (Html.BeginForm("DeleteComment", "Blog", new { id = comment.CommentID }, FormMethod.Post)) { 
+                @Html.AntiForgeryToken()
+                <p>
+                    <input type="submit" value="Delete Comment" />
+                </p>
+            }
         </article>
     }
 </section>
