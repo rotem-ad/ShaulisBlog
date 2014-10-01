@@ -23,6 +23,66 @@ namespace ShaulisBlog.Controllers
         }
 
         //
+        // POST: /Blog/FilterPosts
+        /*
+        * Method which handles posts searches from Index view
+        */
+        [HttpPost]
+        public ActionResult FilterPosts(int minComments, DateTime fromDate, DateTime untilDate, string postTitle = "", string wordsInComments = "")
+        {
+            IEnumerable<Post> filteredPosts = db.Posts; // Holds the result set
+
+            // If both "Title" and "Comments contain" were given as filter
+            if ((postTitle != string.Empty) && (wordsInComments != string.Empty))
+            {
+                filteredPosts = from p in db.Posts
+                                join c in db.Comments on p.PostID equals c.PostID
+                                where p.Comments.Count() >= minComments &&
+                                p.PublishDate >= fromDate &&
+                                p.PublishDate <= untilDate &&
+                                p.Title.ToLower() == postTitle.ToLower() &&
+                                c.Content.Contains(wordsInComments)
+                                select p;
+            }
+
+            // If "Comments contain" was given as filter and "Title" field was blank
+            if ((postTitle == string.Empty) && (wordsInComments != string.Empty))
+            {
+                filteredPosts = from p in db.Posts
+                                join c in db.Comments on p.PostID equals c.PostID
+                                where p.Comments.Count() >= minComments &&
+                                p.PublishDate >= fromDate &&
+                                p.PublishDate <= untilDate &&
+                                c.Content.Contains(wordsInComments)
+                                select p;
+            }
+
+            // If "Title" was given as filter and "Comments contain" field was blank
+            if ((postTitle != string.Empty) && (wordsInComments == string.Empty))
+            {
+                filteredPosts = from p in db.Posts
+                                where p.Comments.Count() >= minComments &&
+                                p.PublishDate >= fromDate &&
+                                p.PublishDate <= untilDate &&
+                                p.Title.ToLower() == postTitle.ToLower() 
+                                select p;
+            }
+
+            // If neither "Title" or "Comments contain" were given as filter
+            if ((postTitle == string.Empty) && (wordsInComments == string.Empty))
+            {
+                filteredPosts = from p in db.Posts
+                                where p.Comments.Count() >= minComments &&
+                                p.PublishDate >= fromDate &&
+                                p.PublishDate <= untilDate
+                                select p;
+            }
+
+            // Make sure to return list with distinct values to avoid duplicate posts in the view
+            return View("Index", filteredPosts.ToList().Distinct());
+        }
+
+        //
         // GET: /Blog/Admin
         /*
          * Method which handles the Admin view
