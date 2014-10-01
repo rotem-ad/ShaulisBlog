@@ -17,9 +17,4 @@ namespace ShaulisBlog.Models
         public int Seniority { get; set; }
     }
 
-    // DBContext which defines set of fan objects 
-    public class FanDBContext : DbContext
-    {
-        public DbSet<Fan> Fans { get; set; }
-    }
 }

@@ -6,12 +6,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ShaulisBlog.Models;
+using ShaulisBlog.DAL;
 
 namespace ShaulisBlog.Controllers
 {
     public class FanClubController : Controller
     {
-        private FanDBContext db = new FanDBContext();
+        private BlogDBContext db = new BlogDBContext();
 
         //
         // GET: /FanClub/

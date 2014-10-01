@@ -194,6 +194,10 @@
     <Compile Include="Migrations\201409261527390_InitialCreate.Designer.cs">
       <DependentUpon>201409261527390_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201410011235090_Add_Fan_Table.cs" />
+    <Compile Include="Migrations\201410011235090_Add_Fan_Table.Designer.cs">
+      <DependentUpon>201410011235090_Add_Fan_Table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Comment.cs" />
@@ -343,6 +347,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201409261527390_InitialCreate.resx">
       <DependentUpon>201409261527390_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410011235090_Add_Fan_Table.resx">
+      <DependentUpon>201410011235090_Add_Fan_Table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
