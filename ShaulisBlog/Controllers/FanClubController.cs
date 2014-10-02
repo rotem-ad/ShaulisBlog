@@ -23,7 +23,7 @@ namespace ShaulisBlog.Controllers
         }
 
         //
-        // POST: /FanClub/FilterPosts
+        // POST: /FanClub/FilterFans
         /*
         * Method which handles fans searches from Index view
         */
