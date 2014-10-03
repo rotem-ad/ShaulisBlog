@@ -185,7 +185,7 @@
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\FanClubController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Select.cs" />
+    <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="DAL\BlogDBContext.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -284,6 +284,7 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Statistics.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -338,6 +339,8 @@
     <Content Include="Views\Blog\Admin.cshtml" />
     <Content Include="Views\Blog\Details - Copy.cshtml" />
     <Content Include="Views\Blog\ManageComments.cshtml" />
+    <Content Include="Views\Statistics\Index.cshtml" />
+    <Content Include="test.tsv" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

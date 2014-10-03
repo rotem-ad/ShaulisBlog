@@ -79,7 +79,7 @@ nav {
 			nav ul li a {
 				display: block;
 				margin-right: 20px;
-				width: 140px;
+				width: 120px;
 				font-size: 14px;
 				line-height: 44px;
 				text-align: center;
@@ -451,3 +451,54 @@ footer {
 		footer ul li a {
 			display: block;
 		}
+
+/**---------------------STATISTICS---------------------*/
+
+.statisticsResult {
+    display:none;
+}
+
+.statisticsQuestion {
+   cursor:pointer;
+    color:#000000;
+    font-size:15px;
+    font-weight:bold;
+    -webkit-transition-property:color, text;
+    -webkit-transition-duration: 0.5s, 0.5s;
+    -webkit-transition-timing-function: linear, ease-in;
+    -moz-transition-property:color, text;
+    -moz-transition-duration:0.5s;
+    -moz-transition-timing-function: linear, ease-in;
+
+    -o-transition-property:color, text;
+    -o-transition-duration:0.5s;
+    -o-transition-timing-function: linear, ease-in;
+}
+
+.statisticsQuestion:hover {
+    color:#f25716;
+}
+
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
