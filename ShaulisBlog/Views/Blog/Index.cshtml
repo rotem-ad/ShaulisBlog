@@ -20,17 +20,22 @@ Authors:
 
 <!-- Search section -->
 <section id="search">
-    <form action="#" method="post">
+   @using (Ajax.BeginForm("FilterPosts", "Blog", new AjaxOptions
+    {
+        HttpMethod = "Post",
+        UpdateTargetId = "Index"
+    }))
+    {
         <h3>Search post</h3>
         <p>
             <label for="fromDate">From Date:</label>
-            <input name="fromDate" id="fromDate" type="date" />
+            <input name="fromDate" id="fromDate" type="date" required />
             <label for="untilDate">Until:</label>
-            <input name="untilDate" id="untilDate" type="date" />
+            <input name="untilDate" id="untilDate" type="date" required />
         </p>
         <p>
-            <label for="writerEmail">Writer's E-mail:</label>
-            <input name="writerEmail" id="writerEmail" type="email" />
+            <label for="title">Title:</label>
+            <input name="postTitle" id="title" type="text" />
         </p>
         <p>
             <label for="wordsInComments">Comments contain:</label>
@@ -38,10 +43,11 @@ Authors:
         </p>
         <p>
             <label for="minComments">Minimum Comments:</label>
-            1 <input name="minComments" id="minComments" type="range" min="1" max="10" /> 10
+            0 <input name="minComments" id="minComments" type="range" min="0" max="10" value="0" /> 10
         </p>
         <p><input type="submit" value="Search" /></p>
-    </form>
+   }
+    <hr />
 </section>
 
 <!-- Content section -->

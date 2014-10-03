@@ -6,12 +6,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ShaulisBlog.Models;
+using ShaulisBlog.DAL;
 
 namespace ShaulisBlog.Controllers
 {
     public class FanClubController : Controller
     {
-        private FanDBContext db = new FanDBContext();
+        private BlogDBContext db = new BlogDBContext();
 
         //
         // GET: /FanClub/
@@ -19,6 +20,30 @@ namespace ShaulisBlog.Controllers
         public ActionResult Index()
         {
             return View(db.Fans.ToList());
+        }
+
+        //
+        // POST: /FanClub/FilterFans
+        /*
+        * Method which handles fans searches from Index view
+        */
+        [HttpPost]
+        public ActionResult FilterFans(string firstName, int minAge = 0, int minSeniority = 0)
+        {
+            IEnumerable<Fan> filteredFans = db.Fans; // Holds the result set
+
+            // If "First Name" was given as input parameter
+            if (!String.IsNullOrWhiteSpace(firstName)) 
+                filteredFans = filteredFans.Where(f => f.FName.ToLower().Contains(firstName.ToLower()));
+            // If "Minimum Age" was given as input parameter
+            if (minAge != 0)
+                filteredFans = filteredFans.Where(f => (DateTime.Today.Year - f.BDate.Year) >= minAge );
+            // If "Minimum Seniority" was given as input parameter
+            if (minSeniority != 0)
+                filteredFans = filteredFans.Where(f => f.Seniority >= minSeniority);
+
+            // Make sure to return list with distinct values to avoid duplicate fans in the view
+            return View("Index", filteredFans.ToList().Distinct());
         }
 
         //

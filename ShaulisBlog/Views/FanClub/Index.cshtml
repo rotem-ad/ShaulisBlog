@@ -15,7 +15,30 @@ Authors:
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<!-- Search section -->
+<section id="search">
+    @using (Ajax.BeginForm("FilterFans", "FanClub", new AjaxOptions
+    {
+        HttpMethod = "Post",
+        UpdateTargetId = "Index"
+    }))
+    {
+        <h2>Search Fan</h2>
+        <p>
+            <label for="firstName">First Name:</label>
+            <input name="firstName" id="firstName" type="text" />
+        </p>
+        <p>
+            <label for="minAge">Minimum Age:</label>
+            <input name="minAge" id="minAge" type="number" />
+        </p>
+        <p>
+            <label for="minSeniority">Minimum Seniority:</label>
+            0<input name="minSeniority" id="minSeniority" type="range" min="0" max="10" value="0" />10
+        </p>
+        <p><input type="submit" value="Search" /></p>
+    }
+</section>
 
 <p>
     @Html.ActionLink("Create New", "Create")

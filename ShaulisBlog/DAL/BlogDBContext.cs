@@ -8,6 +8,8 @@ namespace ShaulisBlog.DAL
     {
         public DbSet<Post> Posts { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        // Defines set of fan objects
+        public DbSet<Fan> Fans { get; set; }
 
         /*
          * The modelBuilder.Conventions.Remove statement in the OnModelCreating method prevents table names from being pluralized.
