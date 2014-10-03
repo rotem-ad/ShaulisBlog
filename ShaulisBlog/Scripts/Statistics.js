@@ -13,8 +13,8 @@ var Statistics = {
          
 
             d3.tsv("postsPerMonth.tsv", type, function (error, data) {
-                x.domain(data.map(function (d) { return d.letter; }));
-                y.domain([0, d3.max(data, function (d) { return d.frequency; })]);
+                x.domain(data.map(function (d) { return d.Month; }));
+                y.domain([0, d3.max(data, function (d) { return d.PostsCount; })]);
 
                 svg.append("g")
                     .attr("class", "x axis")
@@ -29,16 +29,16 @@ var Statistics = {
                     .attr("y", 6)
                     .attr("dy", ".71em")
                     .style("text-anchor", "end")
-                    .text("Frequency");
+                    .text("PostsCount");
 
                 svg.selectAll(".bar")
                     .data(data)
                   .enter().append("rect")
                     .attr("class", "bar")
-                    .attr("x", function (d) { return x(d.letter); })
+                    .attr("x", function (d) { return x(d.Month); })
                     .attr("width", x.rangeBand())
-                    .attr("y", function (d) { return y(d.frequency); })
-                    .attr("height", function (d) { return height - y(d.frequency); });
+                    .attr("y", function (d) { return y(d.PostsCount); })
+                    .attr("height", function (d) { return height - y(d.PostsCount); });
 
             });
 

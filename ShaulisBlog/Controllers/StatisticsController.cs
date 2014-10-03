@@ -24,14 +24,10 @@ namespace ShaulisBlog.Controllers
         }
 
         private void GenerateStatisticFiles() {
-            //How many posts were added per month?   
+            //How many posts were added per month?    -- get the data
             var postsPerMonth = db.Posts.GroupBy(a => a.PublishDate.Month).Select(g => new { StateId = g.Key, Count = g.Count() });
-
-
-            // Example #4: Append new text to an existing file. 
-            // The using statement automatically closes the stream and calls  
-            // IDisposable.Dispose on the stream object. 
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\miri_k\Source\Repos\ShaulisBlog\ShaulisBlog\postsPerMonth.tsv", true))
+            //write to file
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\miri_k\Source\Repos\ShaulisBlog\ShaulisBlog\postsPerMonth.tsv", false))
             {
                string line = string.Format("{0}\t{1}", "Month", "PostsCount"); //do headline
                file.WriteLine(line);
@@ -41,6 +37,36 @@ namespace ShaulisBlog.Controllers
                    file.WriteLine(line);
                }
             }
+
+            //How many comments were added per month?   --get the data
+            var commentsPerMonth =db.Comments.GroupBy(x=>x.Post.PublishDate.Month).Select(g => new { StateId = g.Key, Count = g.Count() });
+            //write to file
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\miri_k\Source\Repos\ShaulisBlog\ShaulisBlog\commentsPerMonth.tsv", true))
+            {
+                string line = string.Format("{0}\t{1}", "Month", "CommentsCount"); //do headline
+                file.WriteLine(line);
+
+                foreach (var data in postsPerMonth)
+                {
+                    line = string.Format("{0}\t{1}", data.StateId, data.Count); //do headline
+                    file.WriteLine(line);
+                }
+            }
+
+            //How many fans join us each day?
+            //var fansPerDay = db.Comments.GroupBy(x => x.Post.PublishDate.Month).Select(g => new { StateId = g.Key, Count = g.Count() });
+            ////write to file
+            //using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\miri_k\Source\Repos\ShaulisBlog\ShaulisBlog\fansPerDay.tsv", true))
+            //{
+            //    string line = string.Format("{0}\t{1}", "Date", "FansCount"); //do headline
+            //    file.WriteLine(line);
+
+            //    foreach (var data in postsPerMonth)
+            //    {
+            //        line = string.Format("{0}\t{1}", data.StateId, data.Count); //do headline
+            //        file.WriteLine(line);
+            //    }
+            //}
         }
 
     }
