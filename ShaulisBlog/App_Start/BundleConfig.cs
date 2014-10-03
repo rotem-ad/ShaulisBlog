@@ -9,16 +9,6 @@ namespace ShaulisBlog
         public static void RegisterBundles(BundleCollection bundles)
         {
 
-            // CSS for Shauli's site shared layout
-            bundles.Add(new StyleBundle("~/ShauliContent/css").Include("~/Content/Shaulis_Site.css"));
-
-            // CSS for Shauli's FanClub
-            bundles.Add(new StyleBundle("~/FanClubContent/css").Include("~/Content/Fan_Club.css"));
-
-            // CSS for Shauli's Blog
-            bundles.Add(new StyleBundle("~/Blog/css").Include("~/Content/Blog.css"));
-
-
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -28,6 +18,10 @@ namespace ShaulisBlog
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",
                         "~/Scripts/jquery.validate*"));
+
+            // Added so Ajax.BeginForm will work properly
+            bundles.Add(new ScriptBundle("~/bundles/jquery_unobtrusive").Include(
+                        "~/Scripts/jquery.unobtrusive*"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
@@ -50,9 +44,14 @@ namespace ShaulisBlog
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
 
+            // CSS for Shauli's site shared layout
+            bundles.Add(new StyleBundle("~/ShauliContent/css").Include("~/Content/Shaulis_Site.css"));
 
+            // CSS for Shauli's FanClub
+            bundles.Add(new StyleBundle("~/FanClubContent/css").Include("~/Content/Fan_Club.css"));
 
-            
+            // CSS for Shauli's Blog
+            bundles.Add(new StyleBundle("~/Blog/css").Include("~/Content/Blog.css"));            
 
         }
     }

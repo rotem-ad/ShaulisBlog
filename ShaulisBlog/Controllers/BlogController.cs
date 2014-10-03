@@ -79,7 +79,7 @@ namespace ShaulisBlog.Controllers
             }
 
             // Make sure to return list with distinct values to avoid duplicate posts in the view
-            return View("Index", filteredPosts.ToList().Distinct());
+            return PartialView("_PostsList", filteredPosts.ToList().Distinct());
         }
        
         
