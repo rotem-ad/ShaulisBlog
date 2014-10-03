@@ -340,6 +340,8 @@
     <Content Include="Views\Blog\Details - Copy.cshtml" />
     <Content Include="Views\Blog\ManageComments.cshtml" />
     <Content Include="Views\Statistics\Index.cshtml" />
+    <Content Include="Views\FanClub\_FanTable.cshtml" />
+    <Content Include="Views\Blog\_PostsList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
