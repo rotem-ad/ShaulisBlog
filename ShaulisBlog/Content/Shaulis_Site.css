@@ -459,7 +459,9 @@ footer {
 }
 
 .statisticsQuestion {
-   cursor:pointer;
+   margin-top:8px;
+   margin-bottom:8px;
+    cursor:pointer;
     color:#000000;
     font-size:15px;
     font-weight:bold;
@@ -481,11 +483,11 @@ footer {
 
 
 .bar {
-  fill: steelblue;
+  fill: #78a31b;
 }
 
 .bar:hover {
-  fill: brown;
+  fill: #568123;
 }
 
 .axis {
