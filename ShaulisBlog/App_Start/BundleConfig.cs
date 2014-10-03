@@ -8,6 +8,17 @@ namespace ShaulisBlog
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
+
+            // CSS for Shauli's site shared layout
+            bundles.Add(new StyleBundle("~/ShauliContent/css").Include("~/Content/Shaulis_Site.css"));
+
+            // CSS for Shauli's FanClub
+            bundles.Add(new StyleBundle("~/FanClubContent/css").Include("~/Content/Fan_Club.css"));
+
+            // CSS for Shauli's Blog
+            bundles.Add(new StyleBundle("~/Blog/css").Include("~/Content/Blog.css"));
+
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -38,15 +49,10 @@ namespace ShaulisBlog
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+
+
             
-            // CSS for Shauli's site shared layout
-            bundles.Add(new StyleBundle("~/ShauliContent/css").Include("~/Content/Shaulis_Site.css"));
-
-            // CSS for Shauli's FanClub
-            bundles.Add(new StyleBundle("~/FanClubContent/css").Include("~/Content/Fan_Club.css"));
-
-            // CSS for Shauli's Blog
-            bundles.Add(new StyleBundle("~/Blog/css").Include("~/Content/Blog.css"));
 
         }
     }

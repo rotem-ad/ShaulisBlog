@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="~/Scripts/Statistics.js"></script>
+
+<h2>Shaulis Blog Statistics</h2>
+
+<div id="ShowPostsPerMonth" class="statisticsQuestion">How many posts were added per month?</div>
+<div id="ShowPostsPerMonthResult" class="statisticsResult">Result</div>
+<div id="ShowCommentsPerMonth" class="statisticsQuestion">How many comments were added per month?</div>
+<div id="ShowCommentsPerMonthResult" class="statisticsResult">Result</div>
+<div id="ShowFans" class="statisticsQuestion">How many fans join us each day?</div>
+<div id="ShowFansResult" class="statisticsResult">Result</div>
+
+@section Scripts {
+    <script type="text/JavaScript">
+
+        $(document).ready(function (e) {
+            $('#ShowPostsPerMonth').click(function (e) { Statistics.ShowHideDetails(e.target.id);   });
+            $('#ShowCommentsPerMonth').click(function (e) {   Statistics.ShowHideDetails(e.target.id);  });
+            $('#ShowFans').click(function (e) {   Statistics.ShowHideDetails(e.target.id);  });
+        });
+
+    </script>
+}

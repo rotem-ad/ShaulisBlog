@@ -185,6 +185,7 @@
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\FanClubController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="DAL\BlogDBContext.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -194,7 +195,7 @@
     <Compile Include="Migrations\201409261527390_InitialCreate.Designer.cs">
       <DependentUpon>201409261527390_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="DAL\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Fan.cs" />
@@ -202,6 +203,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Blog.mdf" />
+    <Content Include="App_Data\Blog_log.ldf">
+      <DependentUpon>Blog.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\Fans.mdf" />
+    <Content Include="App_Data\Fans_log.ldf">
+      <DependentUpon>Fans.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\Blog.css" />
     <Content Include="Content\Fan_Club.css" />
     <Content Include="Content\fonts\Dharma Type Font License.txt" />
@@ -263,6 +272,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\fonts\BebasNeue.otf" />
+    <Content Include="App_Data\test.tsv" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="media\COOL_PIANO_JAZZ.mp3" />
     <Content Include="Scripts\jquery-1.8.2.js" />
@@ -279,6 +289,7 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Statistics.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -333,10 +344,10 @@
     <Content Include="Views\Blog\Admin.cshtml" />
     <Content Include="Views\Blog\Details - Copy.cshtml" />
     <Content Include="Views\Blog\ManageComments.cshtml" />
+    <Content Include="Views\Statistics\Index.cshtml" />
+    <Content Include="test.tsv" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
