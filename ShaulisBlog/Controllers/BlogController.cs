@@ -108,27 +108,28 @@ namespace ShaulisBlog.Controllers
         }
 
         /*
-        * Method which count the number of comments for writer
+        *  Method which group by  number of comments for writer
         */
         public ActionResult FilterNumberOfComments(string commentWriter = "")
         {
-
-
+           // IEnumerable<Post> filteredComments = db.Comments;
             int number = 0;
-
             if (commentWriter != string.Empty)
             {
-              
+               // filteredComments = from c in db.Comments 
+                   //      group c by c.Writer.Count();
+                        // where c.Writer.ToUpper() == commentWriter.ToUpper()
+                       //  select c.CommentID.Count();   
+           
+
+                
             }
-
-
-
             // Make sure to return list with distinct values to avoid duplicate posts in the view
             return View(number);
 
         }
 
-
+       
 
         //
         // GET: /Blog/Admin
