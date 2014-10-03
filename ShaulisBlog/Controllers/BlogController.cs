@@ -81,6 +81,54 @@ namespace ShaulisBlog.Controllers
             // Make sure to return list with distinct values to avoid duplicate posts in the view
             return View("Index", filteredPosts.ToList().Distinct());
         }
+       
+        
+        //only server side
+        /*
+        * Method which handles postTitle searches by writer comments
+        */
+        public ActionResult FilterPostsByCommentWriter(string commentWriter = "")
+        {
+            IEnumerable<Post> filteredPost = db.Posts; // Holds the result set
+
+            
+            if (commentWriter != string.Empty)
+            {
+                filteredPost = from p in db.Posts
+                                join c in db.Comments on p.PostID equals c.PostID
+                                where c.Writer.ToUpper() == commentWriter.ToUpper()
+                                select p;
+            }
+
+            
+
+            // Make sure to return list with distinct values to avoid duplicate posts in the view
+            return View("Index", filteredPost.ToList().Distinct());
+
+        }
+
+        /*
+        * Method which count the number of comments for writer
+        */
+        public ActionResult FilterNumberOfComments(string commentWriter = "")
+        {
+
+
+            int number = 0;
+
+            if (commentWriter != string.Empty)
+            {
+              
+            }
+
+
+
+            // Make sure to return list with distinct values to avoid duplicate posts in the view
+            return View(number);
+
+        }
+
+
 
         //
         // GET: /Blog/Admin
