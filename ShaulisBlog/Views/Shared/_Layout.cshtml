@@ -110,6 +110,10 @@ Authors:
             </footer>
 
             @Scripts.Render("~/bundles/jquery")
+
+            @*use a Scripts section so Ajax.BeginForm will work properly*@
+            @Scripts.Render("~/bundles/jquery_unobtrusive")
+
             @RenderSection("scripts", required: false)
 </body>
 </html>

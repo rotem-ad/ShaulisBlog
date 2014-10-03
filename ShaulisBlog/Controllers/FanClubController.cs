@@ -43,7 +43,8 @@ namespace ShaulisBlog.Controllers
                 filteredFans = filteredFans.Where(f => f.Seniority >= minSeniority);
 
             // Make sure to return list with distinct values to avoid duplicate fans in the view
-            return View("Index", filteredFans.ToList().Distinct());
+            return PartialView("_FanTable", filteredFans.ToList().Distinct());
+           
         }
 
         //
