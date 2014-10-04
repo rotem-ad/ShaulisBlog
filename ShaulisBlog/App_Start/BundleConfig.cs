@@ -50,6 +50,9 @@ namespace ShaulisBlog
             // CSS for Shauli's FanClub
             bundles.Add(new StyleBundle("~/FanClubContent/css").Include("~/Content/Fan_Club.css"));
 
+            // CSS for Shauli's Places Page
+            bundles.Add(new StyleBundle("~/PlacesContent/css").Include("~/Content/Places.css"));
+
             // CSS for Shauli's Blog
             bundles.Add(new StyleBundle("~/Blog/css").Include("~/Content/Blog.css"));            
 

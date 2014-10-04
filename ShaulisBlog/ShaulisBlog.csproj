@@ -185,6 +185,7 @@
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\FanClubController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PlacesController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="DAL\BlogDBContext.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -199,16 +200,22 @@
     <Compile Include="Migrations\201410011235090_Add_Fan_Table.Designer.cs">
       <DependentUpon>201410011235090_Add_Fan_Table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201410041954485_Add_Location_Table.cs" />
+    <Compile Include="Migrations\201410041954485_Add_Location_Table.Designer.cs">
+      <DependentUpon>201410041954485_Add_Location_Table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Fan.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Statistics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Blog.css" />
+    <Content Include="Content\Places.css" />
     <Content Include="Content\Fan_Club.css" />
     <Content Include="Content\fonts\Dharma Type Font License.txt" />
     <Content Include="Content\Shaulis_Site.css" />
@@ -343,6 +350,13 @@
     <Content Include="Views\Statistics\Index.cshtml" />
     <Content Include="Views\FanClub\_FanTable.cshtml" />
     <Content Include="Views\Blog\_PostsList.cshtml" />
+    <Content Include="Views\FanClub\Places.cshtml" />
+    <Content Include="Views\Places\Index.cshtml" />
+    <Content Include="Views\Places\Details.cshtml" />
+    <Content Include="Views\Places\Create.cshtml" />
+    <Content Include="Views\Places\Edit.cshtml" />
+    <Content Include="Views\Places\Delete.cshtml" />
+    <Content Include="Views\Places\ManagePlaces.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -356,6 +370,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201410011235090_Add_Fan_Table.resx">
       <DependentUpon>201410011235090_Add_Fan_Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410041954485_Add_Location_Table.resx">
+      <DependentUpon>201410041954485_Add_Location_Table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ShaulisBlog.Models.Location>
+
+<!-- Render Places CSS -->
+@Styles.Render("~/PlacesContent/css")
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+<script type="text/JavaScript">
+    function initialize() {
+        // Set initial location as Israel's center
+        var israelLatlng = new google.maps.LatLng(32.094879, 34.952925);
+        // Set map options
+        var mapOptions = {
+            zoom: 10,
+            center: israelLatlng,
+            zoomControl: true,
+            scaleControl: true,
+            streetViewControl: true,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        // Define map object in page
+        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+        // Execute setMarkers function to populate map with markers from DB
+        setMarkers(map);
+    }
+
+    // This function iterates over Places table in DB and populates map with markers 
+    function setMarkers(map) {
+        
+        @foreach (var location in Model)
+        {
+            <text>
+            var myLatLng = new google.maps.LatLng('@location.Latitude', '@location.Longitude');
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: '@location.Description',
+                zIndex: @location.ZIndex
+            });
+            </text>
+        }
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+@{
+    ViewBag.Title = "Places";
+}
+
+<h2>Check out where Shauli has been to!</h2>
+
+<p>Just follow the markers on this cool map (: </p>
+
+<div id="map-canvas"></div>
+
+<br />

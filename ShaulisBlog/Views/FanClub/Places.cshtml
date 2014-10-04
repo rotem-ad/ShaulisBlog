@@ -1,0 +1,30 @@
+﻿<!-- Render FanClub CSS -->
+@Styles.Render("~/FanClubContent/css")
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+<script type="text/JavaScript">
+    function initialize() {
+        var israelLatlng = new google.maps.LatLng(31.005330, 34.867582);
+        var mapOptions = {
+            zoom: 8,
+            center: israelLatlng
+        }
+        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+        var marker = new google.maps.Marker({
+            position: israelLatlng,
+            map: map,
+            title: 'Hello World!'
+        });
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+@{
+    ViewBag.Title = "Places";
+}
+
+<h2>Check out where Shauli has been to!</h2>
+
+<div id="map-canvas"></div>

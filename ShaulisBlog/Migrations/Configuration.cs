@@ -39,6 +39,19 @@ namespace ShaulisBlog.Migrations
             // Add above fans in case their FanID does not exist in DB, else just perform an update
             fans.ForEach(f => context.Fans.AddOrUpdate(p => p.FanID, f));
             context.SaveChanges();
+
+            var locations = new List<Location>
+            {
+                new Location { LocationId = 1, Name = "Tel Aviv", Latitude = 32.074504, Longitude = 34.792191, ZIndex = 1, Description = "I like shopping at Azrieli mall!" },
+                new Location { LocationId = 2, Name = "Herzliya", Latitude = 32.163767, Longitude = 34.797646, ZIndex = 1, Description = "Took Irena to Herzliya marine" },
+                new Location { LocationId = 3, Name = "Eilat", Latitude = 29.557654, Longitude = 34.951926, ZIndex = 1, Description = "Hangining out in Eilat with my son Luther" },
+                new Location { LocationId = 4, Name = "Safari", Latitude = 32.043882, Longitude = 34.825139, ZIndex = 1, Description = "At Safari with my favorite veterinarian - George!" },
+                new Location { LocationId = 5, Name = "Ashdod", Latitude = 31.809848, Longitude = 34.655708, ZIndex = 1, Description = "Having breakfast with all parlament members (:" },
+            };
+
+            // Add above fans in case their FanID does not exist in DB, else just perform an update
+            locations.ForEach(x => context.Locations.AddOrUpdate(p => p.LocationId, x));
+            context.SaveChanges();
         }
     }
 }
