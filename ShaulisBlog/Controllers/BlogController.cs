@@ -112,15 +112,15 @@ namespace ShaulisBlog.Controllers
         */
         public ActionResult FilterNumberOfComments(string commentWriter = "")
         {
-           // IEnumerable<Post> filteredComments = db.Comments;
+            IEnumerable<Post> filteredComments = db.Comments;
+
             int number = 0;
             if (commentWriter != string.Empty)
             {
-               // filteredComments = from c in db.Comments 
-                   //      group c by c.Writer.Count();
+                filteredComments = from c in db.Comments 
+                         group c by c.Writer into g
                         // where c.Writer.ToUpper() == commentWriter.ToUpper()
-                       //  select c.CommentID.Count();   
-           
+                        select new {Name=g.Writer, WriterCount =g.Writer.Count()};         
 
                 
             }
