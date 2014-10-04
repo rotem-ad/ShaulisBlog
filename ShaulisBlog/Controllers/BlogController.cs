@@ -112,18 +112,18 @@ namespace ShaulisBlog.Controllers
         */
         public ActionResult FilterNumberOfComments(string commentWriter = "")
         {
-            IEnumerable<Post> filteredComments = db.Comments;
-
+          
             int number = 0;
             if (commentWriter != string.Empty)
             {
-                filteredComments = from c in db.Comments 
-                         group c by c.Writer into g
-                        // where c.Writer.ToUpper() == commentWriter.ToUpper()
-                        select new {Name=g.Writer, WriterCount =g.Writer.Count()};         
-
+                var query = from c in db.Comments  
+                            where c.Writer.ToUpper() == commentWriter.ToUpper()
+                            group c by c.Writer into g                       
+                            select new {Name=g.Key, WriterCount =g.Count()};
+                number = query.;
                 
             }
+           
             // Make sure to return list with distinct values to avoid duplicate posts in the view
             return View(number);
 
