@@ -14,7 +14,7 @@ namespace ShaulisBlog.Models
         {
             //How many posts were added per month?    -- get the data
             var postsPerMonth = db.Posts.GroupBy(x => new { x.PublishDate.Year, x.PublishDate.Month }).Select(g => new { Key = g.Key, Count = g.Count() }).OrderBy(x => x.Key.Year).ThenBy(x => x.Key.Month);
-            string path = System.Web.HttpContext.Current.Server.MapPath("ShowPostsPerMonthResult.tsv");
+            string path = System.Web.HttpContext.Current.Server.MapPath("~/ShowPostsPerMonthResult.tsv");
 
             //write to file
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(path, false))
@@ -31,7 +31,7 @@ namespace ShaulisBlog.Models
 
             //How many comments were added per month?   --get the data
             var commentsPerMonth = db.Comments.GroupBy(x => new { x.Post.PublishDate.Year, x.Post.PublishDate.Month }).Select(g => new { Key = g.Key, Count = g.Count() }).OrderBy(x => x.Key.Year).ThenBy(x => x.Key.Month);
-            path = System.Web.HttpContext.Current.Server.MapPath("ShowCommentsPerMonthResult.tsv");
+            path = System.Web.HttpContext.Current.Server.MapPath("~/ShowCommentsPerMonthResult.tsv");
             //write to file
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(path, false))
             {
@@ -47,7 +47,7 @@ namespace ShaulisBlog.Models
 
             //How many fans do we have?
             var fansCount = db.Fans.GroupBy(x => x.Seniority).Select(g => new { Key = g.Key, Count = g.Count() }).OrderBy(x => x.Key);
-            path = System.Web.HttpContext.Current.Server.MapPath("ShowFansResult.tsv");
+            path = System.Web.HttpContext.Current.Server.MapPath("~/ShowFansResult.tsv");
             //write to file
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(path, false))
             {

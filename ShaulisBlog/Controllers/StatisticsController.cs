@@ -20,13 +20,23 @@ namespace ShaulisBlog.Controllers
         public ActionResult Index()
         {
             //generate statistic files
-            statistics.GenerateStatisticFiles();
+            //statistics.GenerateStatisticFiles();
 
             return View();
         }
 
-       
 
+        public string ReGenerateStatisticFiles()
+        {
+            try
+            {
+                statistics.GenerateStatisticFiles(); //Generate new statistic files
+                return "OK";
+            }
+            catch (Exception ex) {
+                return "ERROR";
+            }
+        }
     }
 
    

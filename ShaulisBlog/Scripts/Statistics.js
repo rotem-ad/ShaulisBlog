@@ -13,8 +13,21 @@ var Statistics = {
             $(detailsId).hide();
         else {
             $(detailsId).show();
-            Statistics.DisplayGraph(itemId + 'Result');
-        }
+            
+            //make ajax call to update the most recent statistics data
+            var url = "/Statistics/ReGenerateStatisticFiles";
+            $.get(url, 
+                null, //here goes the params if we intend to pass params to function in format: { paramName: data } 
+                function (data) {
+                    if(data == "OK") //if data was updated successfully --> show it
+                     {
+                        Statistics.DisplayGraph(itemId + 'Result');
+                      }
+                    });
+
+            }
+          
+        
     },
 
     //generate graph to show results
