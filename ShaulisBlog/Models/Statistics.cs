@@ -60,6 +60,22 @@ namespace ShaulisBlog.Models
                     file.WriteLine(line);
                 }
             }
+
+            //How many comments do we have for commentWriter?
+            var commentWriterCount = db.Comments.GroupBy(x =>  x.Writer).Select(g => new { Key = g.Key, Count = g.Count() }).OrderBy(x => x.Key);
+            path = System.Web.HttpContext.Current.Server.MapPath("~/ShowCommentWriterResult.tsv");
+            //write to file
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(path, false))
+            {
+                string line = string.Format("{0}\t{1}", "Item", "Count"); //do headline
+                file.WriteLine(line);
+
+                foreach (var data in fansCount)
+                {
+                    line = string.Format("Seniority:{0}\t{1}", data.Key, data.Count);
+                    file.WriteLine(line);
+                }
+            }
         }
     }
 }

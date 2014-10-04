@@ -107,32 +107,7 @@ namespace ShaulisBlog.Controllers
 
         }
 
-        //only server side
-
-        /*
-        *  Method which group by  number of comments for writer
-        */
-        public ActionResult FilterNumberOfComments(string commentWriter = "")
-        {
-
-            IEnumerable<Comment> CountNumber = db.Comments; // Holds the result set
-
-            if (commentWriter != string.Empty)
-            {
-                var query = from c in db.Comments  
-                            where c.Writer.ToUpper() == commentWriter.ToUpper()
-                            group c by c.Writer into g                       
-                            select new {Name=g.Key, WriterCount =g.Count()};
-                
-                
-            }
-           
-            // Make sure to return list with distinct values to avoid duplicate posts in the view
-            return View("Index", CountNumber.ToList().Distinct());
-
-        }
-
-       
+              
 
         //
         // GET: /Blog/Admin
