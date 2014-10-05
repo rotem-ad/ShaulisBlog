@@ -210,7 +210,6 @@
     <Content Include="Content\Places.css" />
     <Content Include="Content\Fan_Club.css" />
     <Content Include="Content\fonts\Dharma Type Font License.txt" />
-    <Content Include="Content\Shaulis_Site_old.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />

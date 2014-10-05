@@ -33,7 +33,7 @@ namespace ShaulisBlog.Controllers
                 statistics.GenerateStatisticFiles(); //Generate new statistic files
                 return "OK";
             }
-            catch (Exception ex) {
+            catch (Exception e) {
                 return "ERROR";
             }
         }

@@ -30,7 +30,7 @@ namespace ShaulisBlog.Controllers
         /*
         * Method which populates ManagePlaces view with list of all places
         */
-
+        [Authorize(Roles = "Administrator")]
         public ActionResult ManagePlaces()
         {
             return View(db.Locations.ToList());
@@ -38,7 +38,7 @@ namespace ShaulisBlog.Controllers
 
         //
         // GET: /Places/Details/5
-
+        [Authorize(Roles = "Administrator")]
         public ActionResult Details(int id = 0)
         {
             Location location = db.Locations.Find(id);
@@ -51,7 +51,7 @@ namespace ShaulisBlog.Controllers
 
         //
         // GET: /Places/Create
-
+        [Authorize(Roles = "Administrator")]
         public ActionResult Create()
         {
             return View();
@@ -62,6 +62,7 @@ namespace ShaulisBlog.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public ActionResult Create(Location location)
         {
             if (ModelState.IsValid)
@@ -76,7 +77,7 @@ namespace ShaulisBlog.Controllers
 
         //
         // GET: /Places/Edit/5
-
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit(int id = 0)
         {
             Location location = db.Locations.Find(id);
@@ -92,6 +93,7 @@ namespace ShaulisBlog.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit(Location location)
         {
             if (ModelState.IsValid)
@@ -105,7 +107,7 @@ namespace ShaulisBlog.Controllers
 
         //
         // GET: /Places/Delete/5
-
+        [Authorize(Roles = "Administrator")]
         public ActionResult Delete(int id = 0)
         {
             Location location = db.Locations.Find(id);
@@ -118,7 +120,7 @@ namespace ShaulisBlog.Controllers
 
         //
         // POST: /Places/Delete/5
-
+        [Authorize(Roles = "Administrator")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

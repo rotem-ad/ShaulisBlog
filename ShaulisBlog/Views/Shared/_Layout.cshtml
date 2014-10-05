@@ -26,15 +26,39 @@ Authors:
 
         <nav>
             <!-- Navigation (Text, Action, Controller) --> 
-            <ul class="navigation">
-                <li class="selected">@Html.ActionLink("Blog", "Index", "Blog")</li> 
-                <li>@Html.ActionLink("Fan Club", "Index", "FanClub")</li>
-                <li>@Html.ActionLink("Places", "Index", "Places")</li>
-                <li>@Html.ActionLink("Statistics", "Index", "Statistics")</li>
-                <li>@Html.ActionLink("About","About","Home")</li>                
-                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>                
-                <li class="subscribe"> <img src="~/Images/rss.png" alt="RSS" />@Html.ActionLink("Subscribe via. RSS", "Index", "Blog") </li>
-            </ul>
+            @{
+                if (Request.IsAuthenticated) //user logged in
+                {
+                    if (User.IsInRole("Administrator"))
+                    {
+                        <ul class="admin-navigation">
+                            <li class="selected">@Html.ActionLink("Blog", "Index", "Blog")</li>
+                            <li>@Html.ActionLink("Fan Club", "Index", "FanClub")</li>
+                            <li>@Html.ActionLink("Places", "Index", "Places")</li>
+                            <li>@Html.ActionLink("Statistics", "Index", "Statistics")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            <li id="dash-board">@Html.ActionLink("AdminBaord", "Admin", "Blog")</li>
+                            <li class="subscribe"> <img src="~/Images/rss.png" alt="RSS" />@Html.ActionLink("Subscribe via. RSS", "Index", "Blog") </li>
+                        </ul>
+                    }
+               }
+               else 
+                 {
+                        <ul class="navigation">
+                            <li class="selected">@Html.ActionLink("Blog", "Index", "Blog")</li>
+                            <li>@Html.ActionLink("Fan Club", "Index", "FanClub")</li>
+                            <li>@Html.ActionLink("Places", "Index", "Places")</li>
+                            <li>@Html.ActionLink("Statistics", "Index", "Statistics")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            
+                            <li class="subscribe"> <img src="~/Images/rss.png" alt="RSS" />@Html.ActionLink("Subscribe via. RSS", "Index", "Blog") </li>
+                        </ul>
+                 }
+            }                  
+            
+          
         </nav>
         <section id="intro">
             <!-- Introduction -->

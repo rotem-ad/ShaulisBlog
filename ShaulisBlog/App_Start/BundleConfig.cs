@@ -54,7 +54,9 @@ namespace ShaulisBlog
             bundles.Add(new StyleBundle("~/PlacesContent/css").Include("~/Content/Places.css"));
 
             // CSS for Shauli's Blog
-            bundles.Add(new StyleBundle("~/Blog/css").Include("~/Content/Blog.css"));            
+            bundles.Add(new StyleBundle("~/Blog/css").Include("~/Content/Blog.css"));
+            
+            // Add CSS for login
 
         }
     }

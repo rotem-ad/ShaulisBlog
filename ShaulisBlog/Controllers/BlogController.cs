@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using ShaulisBlog.Models;
 using ShaulisBlog.DAL;
+using ShaulisBlog.Filters;
 
 namespace ShaulisBlog.Controllers
 {
@@ -16,7 +17,7 @@ namespace ShaulisBlog.Controllers
 
         //
         // GET: /Blog/
-
+        [InitializeSimpleMembership]
         public ActionResult Index()
         {
             return View(db.Posts.ToList());
@@ -150,6 +151,7 @@ namespace ShaulisBlog.Controllers
         /*
          * Method which handles the Admin view
          */
+        [Authorize(Roles="Administrator")]
         public ActionResult Admin()
         {
             return View(db.Posts.ToList());
@@ -160,6 +162,7 @@ namespace ShaulisBlog.Controllers
         /*
          * Method which handles the Manage Comments view
          */
+        [Authorize(Roles = "Administrator")]
         public ActionResult ManageComments(int id = 0)
         {
             Post post = db.Posts.Find(id);
@@ -175,6 +178,7 @@ namespace ShaulisBlog.Controllers
         /*
         * Method which handles the comments deletion
         */
+        [Authorize(Roles = "Administrator")]
         [HttpPost, ActionName("DeleteComment")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteComment(int id = 0)
@@ -192,7 +196,7 @@ namespace ShaulisBlog.Controllers
 
         //
         // GET: /Blog/Details/5
-
+        [Authorize(Roles = "Administrator")]
         public ActionResult Details(int id = 0)
         {
             Post post = db.Posts.Find(id);
@@ -205,7 +209,7 @@ namespace ShaulisBlog.Controllers
 
         //
         // GET: /Blog/AddNewPost
-
+        [Authorize(Roles = "Administrator")]
         public ActionResult AddNewPost()
         {
             return View();
@@ -215,6 +219,7 @@ namespace ShaulisBlog.Controllers
         // POST: /Blog/AddNewPost
 
         [HttpPost]
+        [Authorize(Roles = "Administrator")]
         [ValidateAntiForgeryToken]
         public ActionResult AddNewPost(Post post)
         {
@@ -259,7 +264,7 @@ namespace ShaulisBlog.Controllers
 
         //
         // GET: /Blog/Edit/5
-
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit(int id = 0)
         {
             Post post = db.Posts.Find(id);
@@ -272,7 +277,7 @@ namespace ShaulisBlog.Controllers
 
         //
         // POST: /Blog/Edit/5
-
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Post post)
@@ -288,7 +293,7 @@ namespace ShaulisBlog.Controllers
 
         //
         // GET: /Blog/Delete/5
-
+        [Authorize(Roles = "Administrator")]
         public ActionResult Delete(int id = 0)
         {
             Post post = db.Posts.Find(id);
@@ -301,7 +306,7 @@ namespace ShaulisBlog.Controllers
 
         //
         // POST: /Blog/Delete/5
-
+        [Authorize(Roles = "Administrator")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

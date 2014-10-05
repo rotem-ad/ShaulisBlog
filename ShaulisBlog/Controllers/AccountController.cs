@@ -15,7 +15,7 @@ using ShaulisBlog.DAL;
 namespace ShaulisBlog.Controllers
 {
     [Authorize]
-    [InitializeSimpleMembership]
+    //[InitializeSimpleMembership]
     public class AccountController : Controller
     {
         //
