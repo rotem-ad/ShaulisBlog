@@ -15,6 +15,12 @@ Authors:
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/ShauliContent/css")
         @Scripts.Render("~/bundles/modernizr")
+        
+        @Scripts.Render("~/bundles/jquery")
+
+        <script src="@Url.Content("~/Scripts/MainLayout.js")"></script>
+
+      
     </head>
     <body>
         <header>
@@ -80,6 +86,13 @@ Authors:
                         <li><a href="#">March 2009</a></li>
                     </ul>
                 </section>
+                <section>
+                    <header>
+                        <h3>Weather</h3>
+                        <div id="weatherDiv"></div>
+                    </header>
+
+                </section>
             </aside>
         
             <footer>
@@ -113,11 +126,13 @@ Authors:
                 </div>
             </footer>
 
-            @Scripts.Render("~/bundles/jquery")
+            @*@Scripts.Render("~/bundles/jquery")*@
 
             @*use a Scripts section so Ajax.BeginForm will work properly*@
             @Scripts.Render("~/bundles/jquery_unobtrusive")
 
             @RenderSection("scripts", required: false)
+          
+         
 </body>
 </html>
