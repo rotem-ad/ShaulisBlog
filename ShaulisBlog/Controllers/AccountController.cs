@@ -55,7 +55,7 @@ namespace ShaulisBlog.Controllers
         {
             WebSecurity.Logout();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Blog");
         }
 
         //
@@ -82,7 +82,7 @@ namespace ShaulisBlog.Controllers
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Blog");
                 }
                 catch (MembershipCreateUserException e)
                 {
@@ -338,7 +338,7 @@ namespace ShaulisBlog.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Blog");
             }
         }
 
