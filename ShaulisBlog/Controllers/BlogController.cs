@@ -28,7 +28,7 @@ namespace ShaulisBlog.Controllers
         * Method which handles posts searches from Index view
         */
         [HttpPost]
-        public ActionResult FilterPosts(int minComments, DateTime fromDate, DateTime untilDate, string postTitle = "", string wordsInComments = "")
+        public ActionResult FilterPosts(int minComments, DateTime fromDate, DateTime untilDate, string postTitle = "", string wordsInComments = "", string commentWriter = "")
         {
             IEnumerable<Post> filteredPosts = db.Posts; // Holds the result set
 
@@ -69,13 +69,23 @@ namespace ShaulisBlog.Controllers
             }
 
             // If neither "Title" or "Comments contain" were given as filter
-            if ((postTitle == string.Empty) && (wordsInComments == string.Empty))
+            if ((commentWriter == string.Empty)&&(postTitle == string.Empty) && (wordsInComments == string.Empty))
             {
                 filteredPosts = from p in db.Posts
                                 where p.Comments.Count() >= minComments &&
                                 p.PublishDate >= fromDate &&
                                 p.PublishDate <= untilDate
                                 select p;
+            }
+            // If comment Writer were given as filter neither "Title" or "Comments contain" were given as filter
+            if ((commentWriter != string.Empty) && (postTitle == string.Empty) && (wordsInComments == string.Empty))
+            {
+                filteredPosts = from p in db.Posts
+                               join c in db.Comments on p.PostID equals c.PostID
+                               where c.Writer.ToUpper() == commentWriter.ToUpper()&&
+                               p.PublishDate >= fromDate &&
+                               p.PublishDate <= untilDate
+                               select p;
             }
 
             // Make sure to return list with distinct values to avoid duplicate posts in the view
@@ -107,7 +117,33 @@ namespace ShaulisBlog.Controllers
 
         }
 
-              
+        //
+        // POST: /Blog/FilterComments
+        /*
+        * Method which handles comments searches from ManageComments view
+        */
+        [HttpPost]
+        public ActionResult FilterComments(string writer, string contains, int PostId)
+        {
+            Post post = db.Posts.Find(PostId);  // Holds the relevant post, according to PostId
+
+            IEnumerable<Comment> filteredComments = post.Comments; // Holds all of its comments
+
+            // If "Writer" was given as input parameter
+            if (!String.IsNullOrWhiteSpace(writer))
+                filteredComments = filteredComments.Where(f => f.Writer.ToLower().Contains(writer.ToLower()));
+            
+            // If "Contains" was given as input parameter
+            if (!String.IsNullOrWhiteSpace(contains))
+                filteredComments = filteredComments.Where(f => f.Content.ToLower().Contains(contains.ToLower()));
+
+            // Update ViewBag.commentList for "_CommentList" partial view
+            ViewBag.commentList = filteredComments.ToList();
+
+            // Return "_CommentList" partial view
+            return PartialView("_CommentList");
+
+        }      
 
         //
         // GET: /Blog/Admin

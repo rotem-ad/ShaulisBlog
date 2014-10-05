@@ -8,29 +8,43 @@
 
 <h2>Manage Comments</h2>
 
-<!-- Comments section -->
-<section id="comments">
-    <h3>Comments</h3>
-    <!-- Display each comment in DB which related to this post -->
-    @foreach (var comment in Model.Comments)
+<!-- Search section -->
+<section id="search">
+    @* We use FilterComments method for filtering comments and update "_CommentList" partial view *@
+    @using (Ajax.BeginForm("FilterComments", "Blog", new AjaxOptions
     {
-        <article>
-            <header>
-                <a href="@comment.WriterWebSite">@comment.Writer</a>
-            </header>
-            <p> @comment.Content </p>
-            <!-- Form which handles this comment deletion -->
-            @using (Html.BeginForm("DeleteComment", "Blog", new { id = comment.CommentID }, FormMethod.Post)) { 
-                @Html.AntiForgeryToken()
-                <p>
-                    <input type="submit" value="Delete Comment" />
-                </p>
-            }
-        </article>
+        HttpMethod = "Post",
+        UpdateTargetId = "CommentList"
+    }))
+    {
+        <h2>Search Comment</h2>
+        <p>
+            <label for="writer">Writer:</label>
+            <input name="writer" id="writer" type="text" />
+        </p>
+        <p>
+            <label for="contains">Contains:</label>
+            <input name="contains" id="contains" type="text" />
+        </p>
+        @Html.HiddenFor(model => model.PostID) <!-- Passing the comment's PostId to FilterComments method -->
+        <p><input type="submit" value="Search" /></p>
     }
 </section>
 
+@{
+    /* 
+     * Initialize ViewBag.commentList with all the comments of this post.
+     * Will be changed by FilterComments method after filtering comments.
+     */
+    ViewBag.commentList = Model.Comments;
+}
+
+<div id="CommentList">
+    @Html.Partial("_CommentList")
+</div>
+
 <p> </p>
+
 <p>
     @Html.ActionLink("Back to Admin View", "Admin")
 </p>
