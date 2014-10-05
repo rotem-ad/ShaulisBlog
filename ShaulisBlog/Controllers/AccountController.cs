@@ -10,6 +10,7 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using ShaulisBlog.Filters;
 using ShaulisBlog.Models;
+using ShaulisBlog.DAL;
 
 namespace ShaulisBlog.Controllers
 {
@@ -263,7 +264,7 @@ namespace ShaulisBlog.Controllers
             if (ModelState.IsValid)
             {
                 // Insert a new user into the database
-                using (UsersContext db = new UsersContext())
+                using (BlogDBContext db = new BlogDBContext()) // Modified to enable 1 db
                 {
                     UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
                     // Check if user already exists
@@ -290,8 +291,8 @@ namespace ShaulisBlog.Controllers
             return View(model);
         }
 
-        //
-        // GET: /Account/ExternalLoginFailure
+        ////
+        //// GET: /Account/ExternalLoginFailure
 
         [AllowAnonymous]
         public ActionResult ExternalLoginFailure()

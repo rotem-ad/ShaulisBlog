@@ -5,13 +5,13 @@ namespace ShaulisBlog.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class InitialCreate : IMigrationMetadata
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201409261527390_InitialCreate"; }
+            get { return "201410051602215_Initial"; }
         }
         
         string IMigrationMetadata.Source

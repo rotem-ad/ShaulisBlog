@@ -19,16 +19,20 @@ Authors:
     <body>
         <header>
             <h1>Ha-Blog Shel Shauli</h1>
+            <section id="login">
+                    @Html.Partial("_LoginPartial")
+            </section>                       
         </header>
 
         <nav>
-            <!-- Navigation -->
-            <ul>
-                <li class="selected">@Html.ActionLink("Blog", "Index", "Blog")</li>
-                <li>@Html.ActionLink("About","Index","Blog")</li>
+            <!-- Navigation (Text, Action, Controller) --> 
+            <ul class="navigation">
+                <li class="selected">@Html.ActionLink("Blog", "Index", "Blog")</li> 
                 <li>@Html.ActionLink("Fan Club", "Index", "FanClub")</li>
-                <li>@Html.ActionLink("Contact", "Index", "Blog")</li>
+                <li>@Html.ActionLink("Places", "Index", "Places")</li>
                 <li>@Html.ActionLink("Statistics", "Index", "Statistics")</li>
+                <li>@Html.ActionLink("About","About","Home")</li>                
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>                
                 <li class="subscribe"> <img src="~/Images/rss.png" alt="RSS" />@Html.ActionLink("Subscribe via. RSS", "Index", "Blog") </li>
             </ul>
         </nav>

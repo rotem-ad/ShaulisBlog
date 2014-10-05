@@ -12,6 +12,13 @@ namespace ShaulisBlog.DAL
         public DbSet<Fan> Fans { get; set; }
         public DbSet<Location> Locations { get; set; }
 
+        // Login & Authentication management system:
+        public DbSet<UserProfile> UserProfiles { get; set; }
+        public DbSet<Membership> Memberships { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<UsersInRole> UsersInRoles { get; set; }
+
+
         /*
          * The modelBuilder.Conventions.Remove statement in the OnModelCreating method prevents table names from being pluralized.
          * If you didn't do this, the generated tables would be named Posts and Comments.
@@ -21,4 +28,14 @@ namespace ShaulisBlog.DAL
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
     }
-}
+
+
+    //    public class UsersContext : DbContext
+    //{
+    //    public UsersContext()
+    //        : base("DefaultConnection")
+    //    {
+    //    }
+
+        
+    }

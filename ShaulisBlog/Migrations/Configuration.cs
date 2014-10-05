@@ -6,6 +6,8 @@ namespace ShaulisBlog.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using System.Web.Security;
+    using WebMatrix.WebData;
 
     internal sealed class Configuration : DbMigrationsConfiguration<ShaulisBlog.DAL.BlogDBContext>
     {
@@ -29,6 +31,9 @@ namespace ShaulisBlog.Migrations
             //    );
             //
 
+            // Added for SimpleMemberProvider (DO NOT REMOVE):
+            WebSecurity.InitializeDatabaseConnection("BlogDBContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+            SeedMembership();
             var fans = new List<Fan>
             {
                 new Fan { FanID = 1, FName = "Eric", LName = "Cartman", Gender = "Male", BDate = DateTime.Parse("2000-09-01"), Seniority = 3 },
@@ -53,5 +58,23 @@ namespace ShaulisBlog.Migrations
             locations.ForEach(x => context.Locations.AddOrUpdate(p => p.LocationId, x));
             context.SaveChanges();
         }
+
+        private void SeedMembership() // Inserts admin user + Administrator user group(role)
+        {
+            
+            if (!Roles.RoleExists("Administrator"))
+                Roles.CreateRole("Administrator");
+
+            if (!WebSecurity.UserExists("zeev"))
+                WebSecurity.CreateUserAndAccount(
+                    "zeev",
+                    "password"
+                    //new { Mobile = "+19725000000", IsSmsVerified = false });
+                );
+
+            if (!Roles.GetRolesForUser("zeev").Contains("Administrator"))
+                Roles.AddUsersToRoles(new[] { "zeev" }, new[] { "Administrator" });
+        }
     }
+
 }

@@ -42,6 +42,7 @@ p {
 	padding-bottom: 22px;
 }
 
+
 /*------------------------------
 =HEADER
 ------------------------------*/
@@ -51,8 +52,62 @@ header h1 {
 	line-height: 44px;
 	padding: 22px 0;
 	text-shadow: 3px 3px 0px #DDDDDD;
+    display: inline;
 }
 
+/* site title
+----------------------------------------------------------*/
+.site-title {
+    color: #c8c8c8;
+    font-family: Rockwell, Consolas, "Courier New", Courier, monospace;
+    font-size: 2.3em;
+    margin: 0;
+}
+
+.site-title a, .site-title a:hover, .site-title a:active {
+    background: none;
+    color: #c8c8c8;
+    outline: none;
+    text-decoration: none;
+}
+
+/* login
+----------------------------------------------------------*/
+#login {
+    display: inline-block;
+    font-size: .85em;
+    margin: 0 0 10px;
+    text-align: right;
+    float: right;
+}
+
+    #login a {
+        margin-right: 3px;
+        padding: 2px 3px;
+        text-decoration: none;
+    }
+
+    #login a.username {
+        background: none;
+        margin: 0;
+        padding: 0;
+        text-decoration: underline;
+    }
+
+    #login ul {
+        margin: 0;
+    }
+
+    #login li {
+        display: inline;
+        list-style: none;
+    }
+
+#logoutForm {
+    display: inline;
+    border-top: none;
+    background-color: none;
+}
 
 
 /*------------------------------
@@ -78,7 +133,6 @@ nav {
 		
 			nav ul li a {
 				display: block;
-				margin-right: 20px;
 				width: 120px;
 				font-size: 14px;
 				line-height: 44px;

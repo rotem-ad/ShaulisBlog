@@ -192,17 +192,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201409261527390_InitialCreate.cs" />
-    <Compile Include="Migrations\201409261527390_InitialCreate.Designer.cs">
-      <DependentUpon>201409261527390_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201410011235090_Add_Fan_Table.cs" />
-    <Compile Include="Migrations\201410011235090_Add_Fan_Table.Designer.cs">
-      <DependentUpon>201410011235090_Add_Fan_Table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201410041954485_Add_Location_Table.cs" />
-    <Compile Include="Migrations\201410041954485_Add_Location_Table.Designer.cs">
-      <DependentUpon>201410041954485_Add_Location_Table.cs</DependentUpon>
+    <Compile Include="Migrations\201410051602215_Initial.cs" />
+    <Compile Include="Migrations\201410051602215_Initial.Designer.cs">
+      <DependentUpon>201410051602215_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -218,7 +210,7 @@
     <Content Include="Content\Places.css" />
     <Content Include="Content\Fan_Club.css" />
     <Content Include="Content\fonts\Dharma Type Font License.txt" />
-    <Content Include="Content\Shaulis_Site.css" />
+    <Content Include="Content\Shaulis_Site_old.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -273,6 +265,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\Shaulis_Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\fonts\BebasNeue.otf" />
@@ -330,7 +323,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_Layout_old.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\FanClub\Index.cshtml" />
@@ -357,6 +350,12 @@
     <Content Include="Views\Places\Edit.cshtml" />
     <Content Include="Views\Places\Delete.cshtml" />
     <Content Include="Views\Places\ManagePlaces.cshtml" />
+    <Content Include="Views\UserProfile\Index.cshtml" />
+    <Content Include="Views\UserProfile\Details.cshtml" />
+    <Content Include="Views\UserProfile\Create.cshtml" />
+    <Content Include="Views\UserProfile\Edit.cshtml" />
+    <Content Include="Views\UserProfile\Delete.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -365,14 +364,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201409261527390_InitialCreate.resx">
-      <DependentUpon>201409261527390_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201410011235090_Add_Fan_Table.resx">
-      <DependentUpon>201410011235090_Add_Fan_Table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201410041954485_Add_Location_Table.resx">
-      <DependentUpon>201410041954485_Add_Location_Table.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201410051602215_Initial.resx">
+      <DependentUpon>201410051602215_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

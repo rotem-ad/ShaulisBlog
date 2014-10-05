@@ -19,6 +19,7 @@ namespace ShaulisBlog
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Blog", action = "Index", id = UrlParameter.Optional }
             );
+
         }
     }
 }
