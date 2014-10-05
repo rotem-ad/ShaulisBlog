@@ -40,7 +40,7 @@ namespace ShaulisBlog.Controllers
                                 where p.Comments.Count() >= minComments &&
                                 p.PublishDate >= fromDate &&
                                 p.PublishDate <= untilDate &&
-                                p.Title.ToLower() == postTitle.ToLower() &&
+                                p.Title.ToLower().Contains(postTitle.ToLower()) &&
                                 c.Content.Contains(wordsInComments)
                                 select p;
             }
@@ -64,28 +64,29 @@ namespace ShaulisBlog.Controllers
                                 where p.Comments.Count() >= minComments &&
                                 p.PublishDate >= fromDate &&
                                 p.PublishDate <= untilDate &&
-                                p.Title.ToLower() == postTitle.ToLower() 
+                                p.Title.ToLower().Contains(postTitle.ToLower()) 
                                 select p;
             }
 
-            // If neither "Title" or "Comments contain" were given as filter
-            if ((commentWriter == string.Empty)&&(postTitle == string.Empty) && (wordsInComments == string.Empty))
+            // If "Comment Writer" was given as filter and "Title", "Comments contain" were NOT given as filter
+            if ((commentWriter != string.Empty) && (postTitle == string.Empty) && (wordsInComments == string.Empty))
+            {
+                filteredPosts = from p in db.Posts
+                                join c in db.Comments on p.PostID equals c.PostID
+                                where c.Writer.ToUpper().Contains(commentWriter.ToUpper()) &&
+                                p.PublishDate >= fromDate &&
+                                p.PublishDate <= untilDate
+                                select p;
+            }
+
+            // If none of "Title", "Comments contain", "Comment Writer" were given as filter
+            if ((commentWriter == string.Empty) && (postTitle == string.Empty) && (wordsInComments == string.Empty))
             {
                 filteredPosts = from p in db.Posts
                                 where p.Comments.Count() >= minComments &&
                                 p.PublishDate >= fromDate &&
                                 p.PublishDate <= untilDate
                                 select p;
-            }
-            // If comment Writer were given as filter neither "Title" or "Comments contain" were given as filter
-            if ((commentWriter != string.Empty) && (postTitle == string.Empty) && (wordsInComments == string.Empty))
-            {
-                filteredPosts = from p in db.Posts
-                               join c in db.Comments on p.PostID equals c.PostID
-                               where c.Writer.ToUpper() == commentWriter.ToUpper()&&
-                               p.PublishDate >= fromDate &&
-                               p.PublishDate <= untilDate
-                               select p;
             }
 
             // Make sure to return list with distinct values to avoid duplicate posts in the view
@@ -109,8 +110,6 @@ namespace ShaulisBlog.Controllers
                                 where c.Writer.ToUpper() == commentWriter.ToUpper()
                                 select p;
             }
-
-            
 
             // Make sure to return list with distinct values to avoid duplicate posts in the view
             return View("Index", filteredPost.ToList().Distinct());

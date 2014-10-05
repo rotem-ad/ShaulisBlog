@@ -331,14 +331,12 @@
     <Content Include="Views\FanClub\Create.cshtml" />
     <Content Include="Views\FanClub\Edit.cshtml" />
     <Content Include="Views\FanClub\Delete.cshtml" />
-    <Content Include="Views\Blog\Index - Copy.cshtml" />
     <Content Include="Views\Blog\Details.cshtml" />
     <Content Include="Views\Blog\AddNewPost.cshtml" />
     <Content Include="Views\Blog\Edit.cshtml" />
     <Content Include="Views\Blog\Delete.cshtml" />
     <Content Include="Views\Blog\_PostComment.cshtml" />
     <Content Include="Views\Blog\Admin.cshtml" />
-    <Content Include="Views\Blog\Details - Copy.cshtml" />
     <Content Include="Views\Blog\ManageComments.cshtml" />
     <Content Include="Views\Statistics\Index.cshtml" />
     <Content Include="Views\FanClub\_FanTable.cshtml" />
