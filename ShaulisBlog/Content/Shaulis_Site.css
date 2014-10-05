@@ -558,3 +558,14 @@ footer {
 .x.axis path {
   display: none;
 }
+
+
+/*------Weather------*/
+.weatherTemp {
+padding-bottom:5px;
+display:inline;
+}
+
+.weatherImg {
+height:25px;
+}
