@@ -107,7 +107,33 @@ namespace ShaulisBlog.Controllers
 
         }
 
-              
+        //
+        // POST: /Blog/FilterComments
+        /*
+        * Method which handles comments searches from ManageComments view
+        */
+        [HttpPost]
+        public ActionResult FilterComments(string writer, string contains, int PostId)
+        {
+            Post post = db.Posts.Find(PostId);  // Holds the relevant post, according to PostId
+
+            IEnumerable<Comment> filteredComments = post.Comments; // Holds all of its comments
+
+            // If "Writer" was given as input parameter
+            if (!String.IsNullOrWhiteSpace(writer))
+                filteredComments = filteredComments.Where(f => f.Writer.ToLower().Contains(writer.ToLower()));
+            
+            // If "Contains" was given as input parameter
+            if (!String.IsNullOrWhiteSpace(contains))
+                filteredComments = filteredComments.Where(f => f.Content.ToLower().Contains(contains.ToLower()));
+
+            // Update ViewBag.commentList for "_CommentList" partial view
+            ViewBag.commentList = filteredComments.ToList();
+
+            // Return "_CommentList" partial view
+            return PartialView("_CommentList");
+
+        }      
 
         //
         // GET: /Blog/Admin
