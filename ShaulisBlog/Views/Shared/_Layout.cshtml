@@ -150,9 +150,9 @@ Authors:
                 </div>
             </footer>
 
-            @*@Scripts.Render("~/bundles/jquery")*@
+          
 
-            @*use a Scripts section so Ajax.BeginForm will work properly*@
+            @*use a Scripts section so Ajax.BeginForm will work properly -- to prevent full postback*@
             @Scripts.Render("~/bundles/jquery_unobtrusive")
 
             @RenderSection("scripts", required: false)

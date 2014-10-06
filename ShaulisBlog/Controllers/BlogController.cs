@@ -95,27 +95,6 @@ namespace ShaulisBlog.Controllers
         }
        
         
-        //only server side
-        /*
-        * Method which handles postTitle searches by writer comments
-        */
-        public ActionResult FilterPostsByCommentWriter(string commentWriter = "")
-        {
-            IEnumerable<Post> filteredPost = db.Posts; // Holds the result set
-
-            
-            if (commentWriter != string.Empty)
-            {
-                filteredPost = from p in db.Posts
-                                join c in db.Comments on p.PostID equals c.PostID
-                                where c.Writer.ToUpper() == commentWriter.ToUpper()
-                                select p;
-            }
-
-            // Make sure to return list with distinct values to avoid duplicate posts in the view
-            return View("Index", filteredPost.ToList().Distinct());
-
-        }
 
         //
         // POST: /Blog/FilterComments
@@ -330,7 +309,7 @@ namespace ShaulisBlog.Controllers
             return View();
         }
 
-
+       
         protected override void Dispose(bool disposing)
         {
             db.Dispose();

@@ -5,6 +5,7 @@ using System.Web;
 
 namespace ShaulisBlog.Models
 {
+    //Location where shauli traveled
     public class Location
     {
         public int LocationId { get; set; }

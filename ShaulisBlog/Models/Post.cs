@@ -4,8 +4,10 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 
+
 namespace ShaulisBlog.Models
 {
+
     public class Post
     {
         public int PostID { get; set; }
@@ -15,6 +17,7 @@ namespace ShaulisBlog.Models
         public DateTime PublishDate { get; set; }
 
         // Required to force EF to create a ntext column, not a nvarchar(n)
+        //Enshure that when db is create the langth of field is max
         [MaxLength]
         public string Content { get; set; }
 
@@ -22,6 +25,7 @@ namespace ShaulisBlog.Models
         [MaxLength]
         public byte[] Photo { get; set; }
         
+
         public virtual ICollection<Comment> Comments { get; set; }
     }
 }
