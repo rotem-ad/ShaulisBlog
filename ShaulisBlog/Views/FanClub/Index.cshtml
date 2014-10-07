@@ -15,6 +15,8 @@ Authors:
     ViewBag.Title = "Index";
 }
 
+<script> Selected("#fan"); </script>
+
 <!-- Search section -->
 <section id="search">
     @using (Ajax.BeginForm("FilterFans", "FanClub", new AjaxOptions
@@ -40,10 +42,16 @@ Authors:
     }
 </section>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@{
+    if (User.IsInRole("Administrator")) //user logged & admin
+    {
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
 
-<div id="FanTable">
-    @Html.Partial("_FanTable")
-</div>
+        <div id="FanTable">
+            @Html.Partial("_FanTable")
+        </div>
+    }
+}
+

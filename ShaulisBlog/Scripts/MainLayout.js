@@ -2,7 +2,59 @@
     //start update weather data loop
     window.setInterval(MainLayout.GetWeatherReport, MainLayout.Timeout); // repeat forever, polling every #Timeout
     MainLayout.GetWeatherReport();
+
+
+
 });
+
+
+
+
+//$(document).ready(function () {
+//    $("nav > ul > li > a").click(function () {
+//        $(this).parent().removeClass("selected");
+//        $(this).parnet().addClass("selected");
+//    });
+//})
+
+////$(document).ready(function () {
+////    if (typeof selected != 'undefined') {
+////        $(selected).closest('li').addClass('selected');
+////    }
+////    $("nav ul li:"+ selcted).addClass('selected');
+    
+////    //if (typeof crap != 'undefined') {
+////    //    $(crap).closest('li').addClass('selected');
+////    //}
+////    //$('nav ul li').on('click', changeClass);
+////});
+
+////function changeClass() {
+////    $('nav ul li').removeClass('selected');
+////    $(this).closest('li').addClass('selected');
+////    if (crap == null) {
+////        var crap = this;
+////    }    
+////}
+
+////$(document).ready(function () {
+////    $('nav ul li').on('click', changeClass);
+////});
+
+////function changeClass() {
+////    $('nav ul li').removeClass('selected');
+////    $(this).closest('li').addClass('selected');
+////}
+
+function Selected(data) {
+    $('nav ul li').removeClass('selected');
+    $("nav ul " + data).addClass('selected');
+}
+
+
+
+
+
 
 var MainLayout = {
     //OpenWeatherMap service link
@@ -45,3 +97,5 @@ var MainLayout = {
     }
 
 }
+
+

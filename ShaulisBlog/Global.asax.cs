@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using WebMatrix.WebData;
+
 
 namespace ShaulisBlog
 {
@@ -23,6 +26,11 @@ namespace ShaulisBlog
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+
+            // Added this in order to init websecurity for the accounts and authorization
+            if (!WebSecurity.Initialized)
+                WebSecurity.InitializeDatabaseConnection("BlogDbContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
         }
     }
 }
+

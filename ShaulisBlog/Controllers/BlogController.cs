@@ -17,7 +17,7 @@ namespace ShaulisBlog.Controllers
 
         //
         // GET: /Blog/
-        [InitializeSimpleMembership]
+        //[InitializeSimpleMembership]
         public ActionResult Index()
         {
             return View(db.Posts.ToList());
@@ -318,16 +318,12 @@ namespace ShaulisBlog.Controllers
 
          public ActionResult About()
         {
-            ViewBag.Message = "Your app description page.";
-
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+           return View();
         }
 
 

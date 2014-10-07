@@ -185,4 +185,25 @@ td {
 tr.pager td {
     padding: 0 0.25em 0 0;
 }
-	
+
+
+/*login management page*/
+
+#loggedIn {
+    font-size: 15px;
+ }
+
+ol li label {
+   width: auto;
+}
+
+#changePass {
+    font-size: 20px;
+}
+
+.message-success {
+    color: #7ac0da;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 20px 0 10px 0;
+}

@@ -32,37 +32,33 @@ Authors:
 
         <nav>
             <!-- Navigation (Text, Action, Controller) --> 
-            @{
-                if (Request.IsAuthenticated) //user logged in
-                {
-                    if (User.IsInRole("Administrator"))
-                    {
-                        <ul class="admin-navigation">
-                            <li class="selected">@Html.ActionLink("Blog", "Index", "Blog")</li>
-                            <li>@Html.ActionLink("Fan Club", "Index", "FanClub")</li>
-                            <li>@Html.ActionLink("Places", "Index", "Places")</li>
-                            <li>@Html.ActionLink("Statistics", "Index", "Statistics")</li>
-                            <li>@Html.ActionLink("About", "About", "Blog")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Blog")</li>
-                            <li id="dash-board">@Html.ActionLink("Admin Board", "Admin", "Blog")</li>
-                            <li class="subscribe"> <img src="~/Images/rss.png" alt="RSS" />@Html.ActionLink("Subscribe via. RSS", "Index", "Blog") </li>
-                        </ul>
-                    }
-               }
-               else 
-                 {
-                        <ul class="navigation">
-                            <li class="selected">@Html.ActionLink("Blog", "Index", "Blog")</li>
-                            <li>@Html.ActionLink("Fan Club", "Index", "FanClub")</li>
-                            <li>@Html.ActionLink("Places", "Index", "Places")</li>
-                            <li>@Html.ActionLink("Statistics", "Index", "Statistics")</li>
-                            <li>@Html.ActionLink("About", "About", "Blog")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Blog")</li>
-                            
-                            <li class="subscribe"> <img src="~/Images/rss.png" alt="RSS" />@Html.ActionLink("Subscribe via. RSS", "Index", "Blog") </li>
-                        </ul>
-                 }
-            }                  
+        @{
+            if (User.IsInRole("Administrator")) //user logged & admin
+            {
+                <ul class="admin-navigation">
+                    <li id="index" class="selected">@Html.ActionLink("Blog", "Index", "Blog")</li>
+                    <li id="fan">@Html.ActionLink("Fan Club", "Index", "FanClub")</li>                    
+                    <li id="places">@Html.ActionLink("Places", "Index", "Places")</li>
+                    <li id="statistics">@Html.ActionLink("Statistics", "Index", "Statistics")</li>
+                    <li id="about">@Html.ActionLink("About", "About", "Blog")</li>
+                    <li id="contact">@Html.ActionLink("Contact", "Contact", "Blog")</li>
+                    <li id="admin">@Html.ActionLink("Admin Board", "Admin", "Blog")</li>
+                    <li class="subscribe"> <img src="~/Images/rss.png" alt="RSS" />@Html.ActionLink("Subscribe via. RSS", "Index", "Blog") </li>
+                </ul>                    
+            }
+            else 
+            {
+                <ul class="navigation">
+                    <li id="index" class="selected">@Html.ActionLink("Blog", "Index", "Blog")</li>
+                    <li id="fan">@Html.ActionLink("Fan Club", "Index", "FanClub")</li>
+                    <li id="places">@Html.ActionLink("Places", "Index", "Places")</li>
+                    <li id="statistics">@Html.ActionLink("Statistics", "Index", "Statistics")</li>
+                    <li id="about">@Html.ActionLink("About", "About", "Blog")</li>
+                    <li id="contact">@Html.ActionLink("Contact", "Contact", "Blog")</li>
+                    <li class="subscribe"> <img src="~/Images/rss.png" alt="RSS" />@Html.ActionLink("Subscribe via. RSS", "Index", "Blog") </li>
+                </ul>
+            }
+        }                  
             
           
         </nav>
@@ -123,24 +119,18 @@ Authors:
                 <!-- Footer -->
                 <div>
                     <section id="about">
-                        <header>
-                            <h3>About</h3>
-                        </header>
+                        <h3>About</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut la</p>
                     </section>
                     <section id="blogroll">
-                        <header>
-                            <h3>Blogroll</h3>
-                        </header>
+                        <h3>Blogroll</h3>
                         <ul>
                             <li><a href="#">NETTUTS+</a></li>
                             <li><a href="#">FreelanceSwitch</a></li>
                         </ul>
                     </section>
                     <section id="popular">
-                        <header>
-                            <h3>Popular</h3>
-                        </header>
+                        <h3>Popular</h3>
                         <ul>
                             <li><a href="#">This is the title of a blog post</a></li>
                             <li><a href="#">Lorem ipsum dolor sit amet</a></li>
@@ -149,8 +139,6 @@ Authors:
                     </section>
                 </div>
             </footer>
-
-            @*@Scripts.Render("~/bundles/jquery")*@
 
             @*use a Scripts section so Ajax.BeginForm will work properly*@
             @Scripts.Render("~/bundles/jquery_unobtrusive")

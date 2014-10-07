@@ -1,11 +1,13 @@
 ﻿@model ShaulisBlog.Models.RegisterModel
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Register For Shaulis Blog";
 }
 
+@Styles.Render("~/FanClubContent/css")
+
 <hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-    <h2>Create a new account.</h2>
+    <h1>@ViewBag.Title</h1>
+    <h2>Create a new account:</h2>
 </hgroup>
 
 @using (Html.BeginForm()) {

@@ -269,6 +269,7 @@
     <Content Include="Content\fonts\BebasNeue.otf" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="media\COOL_PIANO_JAZZ.mp3" />
+    <Content Include="Scripts\about-canvas.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -309,14 +310,10 @@
     <Content Include="Images\orderedList9.png" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
     <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Blog\About.cshtml" />
     <Content Include="Views\Blog\Contact.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
@@ -361,6 +358,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201410051602215_Initial.resx">
       <DependentUpon>201410051602215_Initial.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

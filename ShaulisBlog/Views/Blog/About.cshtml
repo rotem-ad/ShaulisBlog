@@ -3,32 +3,24 @@
 }
 
 <hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-    <h2>@ViewBag.Message</h2>
+    <h1>@ViewBag.Title</h1>
 </hgroup>
 
-<article>
-    <p>
-        Use this area to provide additional information.
-    </p>
+<script src="~/Scripts/about-canvas.js"></script>
 
-    <p>
-        Use this area to provide additional information.
-    </p>
+<div class="subdiv">
+    <canvas id="MyCanvas1" width="600" height="300">
+        This browser or document mode doesn't support canvas object
+    </canvas>
+</div>
 
-    <p>
-        Use this area to provide additional information.
-    </p>
-</article>
 
-<aside>
-    <h3>Aside Title</h3>
-    <p>
-        Use this area to provide additional information.
-    </p>
-    <ul>
-        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-        <li>@Html.ActionLink("About", "About", "Home")</li>
-        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-    </ul>
-</aside>
+<video width="600" height="300" controls>
+    <source src="media/pita.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<script>
+    $(document).load(init());
+    Selected("#about");
+</script>

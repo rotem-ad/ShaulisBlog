@@ -187,7 +187,7 @@ nav {
        width: 110px;         
     }
 
-    #dash-board a {
+    #admin a {
        font-weight: bolder
     }
 			
@@ -583,4 +583,20 @@ display:inline;
 
 .weatherImg {
 height:25px;
+}
+
+
+/*------About-------*/
+
+canvas {
+    /*border: 1px solid #bbb;*/
+}
+
+.subdiv {
+    width: 320px;
+}
+
+.text {
+    margin: auto;
+    width: 290px;
 }
