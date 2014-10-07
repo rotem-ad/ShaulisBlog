@@ -29,7 +29,7 @@ namespace ShaulisBlog
 
             // Added this in order to init websecurity for the accounts and authorization
             if (!WebSecurity.Initialized)
-                WebSecurity.InitializeDatabaseConnection("BlogDbContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                WebSecurity.InitializeDatabaseConnection("BlogDbContext", "UserProfile", "UserId", "UserName", autoCreateTables: false);
         }
     }
 }

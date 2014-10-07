@@ -39,9 +39,11 @@
                 @Html.DisplayFor(modelItem => item.Seniority)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.FanID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.FanID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.FanID })
+                @if (User.IsInRole("Administrator")) {  //user logged & admin
+                    @Html.ActionLink("Edit", "Edit", new { id = item.FanID }) <text>|</text>
+                    @Html.ActionLink("Details", "Details", new { id = item.FanID }) <text>|</text>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.FanID })
+                }
             </td>
         </tr>
     }
