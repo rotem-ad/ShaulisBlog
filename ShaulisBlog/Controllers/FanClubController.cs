@@ -49,7 +49,7 @@ namespace ShaulisBlog.Controllers
 
         //
         // GET: /FanClub/Details/5
-
+        [Authorize(Roles = "Administrator")]
         public ActionResult Details(int id = 0)
         {
             Fan fan = db.Fans.Find(id);
@@ -62,7 +62,7 @@ namespace ShaulisBlog.Controllers
 
         //
         // GET: /FanClub/Create
-
+        [Authorize(Roles = "Administrator")]
         public ActionResult Create()
         {
             return View();
@@ -73,6 +73,7 @@ namespace ShaulisBlog.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public ActionResult Create(Fan fan)
         {
             if (ModelState.IsValid)
@@ -87,7 +88,7 @@ namespace ShaulisBlog.Controllers
 
         //
         // GET: /FanClub/Edit/5
-
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit(int id = 0)
         {
             Fan fan = db.Fans.Find(id);
@@ -103,6 +104,7 @@ namespace ShaulisBlog.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit(Fan fan)
         {
             if (ModelState.IsValid)
@@ -116,7 +118,7 @@ namespace ShaulisBlog.Controllers
 
         //
         // GET: /FanClub/Delete/5
-
+        [Authorize(Roles = "Administrator")]
         public ActionResult Delete(int id = 0)
         {
             Fan fan = db.Fans.Find(id);
@@ -132,6 +134,7 @@ namespace ShaulisBlog.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public ActionResult DeleteConfirmed(int id)
         {
             Fan fan = db.Fans.Find(id);

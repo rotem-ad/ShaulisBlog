@@ -94,15 +94,15 @@ namespace ShaulisBlog.Migrations
             if (!Roles.RoleExists("Administrator"))
                 Roles.CreateRole("Administrator");
 
-            if (!WebSecurity.UserExists("zeev"))
+            if (!WebSecurity.UserExists("admin"))
                 WebSecurity.CreateUserAndAccount(
-                    "zeev",
+                    "admin",
                     "password"
                     //new { Mobile = "+19725000000", IsSmsVerified = false });
                 );
 
-            if (!Roles.GetRolesForUser("zeev").Contains("Administrator"))
-                Roles.AddUsersToRoles(new[] { "zeev" }, new[] { "Administrator" });
+            if (!Roles.GetRolesForUser("admin").Contains("Administrator"))
+                Roles.AddUsersToRoles(new[] { "admin" }, new[] { "Administrator" });
         }
     }
 
