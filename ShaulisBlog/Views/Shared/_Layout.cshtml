@@ -15,9 +15,7 @@ Authors:
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/ShauliContent/css")
         @Scripts.Render("~/bundles/modernizr")
-        
         @Scripts.Render("~/bundles/jquery")
-
         <script src="@Url.Content("~/Scripts/MainLayout.js")"></script>
 
       
@@ -33,7 +31,7 @@ Authors:
         <nav>
             <!-- Navigation (Text, Action, Controller) --> 
         @{
-            if (User.IsInRole("Administrator")) //user logged & admin
+            if (User.IsInRole("Administrator")) //user logged in & admin
             {
                 <ul class="admin-navigation">
                     <li id="index" class="selected">@Html.ActionLink("Blog", "Index", "Blog")</li>
@@ -140,7 +138,7 @@ Authors:
                 </div>
             </footer>
 
-            @*use a Scripts section so Ajax.BeginForm will work properly*@
+            @*use a Scripts section so Ajax.BeginForm will work properly -- to prevent full postback*@
             @Scripts.Render("~/bundles/jquery_unobtrusive")
 
             @RenderSection("scripts", required: false)

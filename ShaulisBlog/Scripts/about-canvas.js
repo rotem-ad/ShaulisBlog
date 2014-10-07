@@ -21,7 +21,7 @@ function RunTextTopToBottom() { // draw the running text
     ctx.clearRect(0, 0, can.width, can.height);
     ctx.save();
     ctx.translate(can.width / 2, step); //moves the (0,0) coordinates to the x/2 & y = step line
-    var txt = 'Shaulis site, a project by:\nZeev Manilovich\nRotem Adhoh\nMiri Kuskina\nLital Gilboa';
+    var txt = 'Shaulis Blog, a project by:\nZeev Manilovich\nRotem Adhoh\nMiri Kuskina\nLital Gilboa';
     var x = 0;
     var y = 0;
     var lineheight = 50;
